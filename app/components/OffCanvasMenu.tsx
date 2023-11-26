@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { MdClose } from 'react-icons/md';
+import AuthMenu from './AuthMenu';
 
 interface OffCanvasMenuProps {
   closeNav: () => void;
@@ -19,6 +20,9 @@ const OffCanvasMenu: React.FC<OffCanvasMenuProps> = ({ closeNav }) => {
         </span>
       </div>
       <ul className="fixed mt-16 top-4 w-full h-full flex flex-col text-[15px] opacity-75 px-9">
+      <div>
+        <AuthMenu isAuthenticated={false}/>
+      </div>
         <li>
           <a href="/shop" className="py-3 inline-block w-full ">
             Shop
@@ -33,7 +37,7 @@ const OffCanvasMenu: React.FC<OffCanvasMenuProps> = ({ closeNav }) => {
           <a href="/myproducts" className="py-3 inline-block w-full ">
             My Product
           </a>
-        </li>
+        </li>b 
       </ul>
     </div>
   );

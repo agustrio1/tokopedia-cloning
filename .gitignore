@@ -16,6 +16,9 @@
 # production
 /build
 
+# Ignore Prisma migrations
+/app/prisma/migrations
+
 # misc
 .DS_Store
 *.pem
