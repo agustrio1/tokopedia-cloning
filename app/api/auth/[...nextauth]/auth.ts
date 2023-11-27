@@ -1,47 +1,55 @@
-import type { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/app/prismadb";
-import bcrypt from "bcrypt";
+import type { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import prisma from '@/app/prismadb';
+import bcrypt from 'bcrypt';
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "credentials",
+      name: 'Credentials',
       credentials: {
-        email: { label: "email", type: "text", placeholder: "Your Email" },
-        password: { label: "password", type: "password", placeholder: "Your Password" },
+        email: {
+          label: 'email',
+          type: 'text',
+          placeholder: 'your email',
+        },
+        password: {
+          label: 'password',
+          type: 'password',
+          placeholder: 'your password',
+        },
       },
       async authorize(credentials) {
-        try {
-          if (!credentials?.email || !credentials?.password) {
-            throw new Error("Invalid credentials");
-          }
-          const user = await prisma.user.findUnique({
-            where: {
-              email: credentials.email,
-            },
-          });
-
-          if (!user || !user?.password) {
-            throw new Error("Invalid credentials");
-          }
-
-          const isCorrectedPassword = await bcrypt.compare(credentials.password, user.password);
-
-          if (!isCorrectedPassword) {
-            throw new Error("Invalid credentials");
-          }
-
-          return Promise.resolve(user);
-        } catch (error) {
-          return Promise.resolve(null);
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error('Invalid credentials');
         }
+
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
+
+        if (!user || !user?.password) {
+          throw new Error('Invalid credentials');
+        }
+
+        const isCorrectedPassword = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
+
+        if (!isCorrectedPassword) {
+          throw new Error('Invalid credentials');
+        }
+
+        return user;
       },
     }),
   ],
   pages: {
-    signIn: "/signin",
-    error: "/signin",
+    signIn: '/signin',
+    error: '/signin',
   },
   callbacks: {
     session: async ({ session, token, user }) => {
@@ -58,8 +66,10 @@ export const authOptions: NextAuthOptions = {
     },
   },
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
-  debug: process.env.NODE_ENV === "development",
+  debug: process.env.NODE_ENV === 'development',
 };
+
+export default authOptions;
