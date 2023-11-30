@@ -9,7 +9,7 @@ interface OffCanvasMenuProps {
 
 const OffCanvasMenu: React.FC<OffCanvasMenuProps> = ({ closeNav }) => {
   return (
-    <div className="fixed top-0 left-0 pl-4 p-8 w-full h-full bg-white bg-opacity-80 flex items-center justify-center">
+    <div className="fixed top-0 left-0 pl-4 p-8 w-full h-full bg-white z-50 flex items-center justify-center">
       <div className="absolute top-0 left-0 w-full bg-white rounded-md overflow-x-8 flex flex-col items-start">
         <span
           onClick={closeNav}
@@ -21,7 +21,7 @@ const OffCanvasMenu: React.FC<OffCanvasMenuProps> = ({ closeNav }) => {
       </div>
       <ul className="fixed mt-16 top-4 w-full h-full flex flex-col text-[15px] opacity-75 px-9">
       <div>
-        <AuthMenu isAuthenticated={false}/>
+        <AuthMenu />
       </div>
         <li>
           <a href="/shop" className="py-3 inline-block w-full ">
@@ -37,7 +37,7 @@ const OffCanvasMenu: React.FC<OffCanvasMenuProps> = ({ closeNav }) => {
           <a href="/myproducts" className="py-3 inline-block w-full ">
             My Product
           </a>
-        </li>b 
+        </li>
       </ul>
     </div>
   );

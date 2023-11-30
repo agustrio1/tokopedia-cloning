@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = () => {
             />
           </div>
         </Link>
-      <div className="ml-auto flex items-center space-x-1">
+      <div className="ml-auto flex items-center space-x-4">
         <Link href="/login">
           <button className="bg-white p-2 rounded-lg cursor-pointer">
             <AiOutlineMail className="text-gray-900" size={24} />

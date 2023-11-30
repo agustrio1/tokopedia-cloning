@@ -1,14 +1,16 @@
-import React from 'react'
-import Header from './components/Header'
+import React from "react";
+import Header from "./components/Header";
+import Homepage from "./home/page";
 
-type Props = {}
+type Props = {};
 
 const Home = async (props: Props) => {
   return (
-    <div className='px-5 max-w-[600px] mx-auto'>
-      <Header/>
+    <div className="px-5 max-w-[600px] mx-auto">
+      <Header />
+      <Homepage/>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
