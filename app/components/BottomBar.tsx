@@ -1,35 +1,47 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 
 const navs = [
   {
     icon: "apps",
     text: "Home",
     image: "/assets/home-icons.svg",
+    activeImage : '/assets/home-active-icons.svg'
   },
   {
     icon: "heart",
     text: "Feed",
     image: "/assets/feed-icons.svg",
+    activeImage : '/assets/feed-active-icons.svg'
   },
   {
     icon: "cart",
-    text: "Official Store",
+    text: "Official-Store",
     image: "/assets/offical-icons.svg",
+    activeImage : 'https://assets.tokopedia.net/assets-tokopedia-lite/v2/poseidon/kratos/1200192a.svg'
   },
   {
     icon: "wishlist",
     text: "Wishlist",
     image: "/assets/wishlist-icons.svg",
+    activeImage : '/assets/wishlist-active-icons.svg'
   },
   {
     icon: "transaction",
     text: "Transaksi",
     image: "/assets/transaction-icons.svg",
+    activeImage : '/assets/transaction-active-icons.svg'
   },
 ];
 
 const BottomBar = () => {
+const [activeIcon, setActiveIcon] = useState(navs[0].icon)
+
+const handleIconsClick = (icons: string) => {
+  setActiveIcon(icons)
+}
+
   return (
     <footer className="flex flex-row items-start justify-between fixed bottom-0 w-full max-w-lg p-2 ">
       <div className="flex flex-row justify-evenly sm:justify-evenly items-center mr-2 h-10 sm:h-8 space-x-2 sm:space-x-6 lg:space-x-10 w-full md:max-w-screen-md xl:max-w-screen-lg mx-auto">
@@ -38,13 +50,15 @@ const BottomBar = () => {
             key={index}
             href={item.text.toLowerCase()}
             passHref
-            className="flex flex-col items-center">
+            className="flex flex-col items-center"
+            onClick={() => handleIconsClick(item.icon)}
+            >
             <img
-              src={item.image}
+              src={activeIcon === item.icon ? item.activeImage : item.image}
               alt={item.text}
               className="h-6 w-6 object-cover"
             />
-            <p className="text-xs sm:text-sm">{item.text}</p>
+            <p className={`text-xs sm:text-sm ${activeIcon === item.icon ? 'text-green-500' : 'text-gray-500'}`}>{item.text}</p>
           </Link>
         ))}
       </div>
