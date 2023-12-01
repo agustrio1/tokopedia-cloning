@@ -1,13 +1,11 @@
 import React from "react";
-import BottomBar from "../components/BottomBar";
 
 type Props = {};
 
 const Homepage = (props: Props) => {
   return (
-    <div className="w-full">
+    <div className="flex items-centerw-[600px]">
       Homepage
-      <BottomBar />
     </div>
   );
 };
