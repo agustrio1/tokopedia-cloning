@@ -5,7 +5,7 @@ type Props = {};
 
 const Home = async (props: Props) => {
   return (
-    <div className="block px-auto max-w-[600px] mx-auto">
+    <div className="flex flex-col items-center justify-center max-w-[600px] mx-auto">
       <Homepage/>
     </div>
   );

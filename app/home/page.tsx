@@ -1,11 +1,14 @@
-import React from "react";
+
+import React from "react"
+import CarouselComponent from "../components/carousel/Carousel";
+
 
 type Props = {};
 
 const Homepage = (props: Props) => {
   return (
-    <div className="flex items-centerw-[600px]">
-      Homepage
+    <div className="">
+     <CarouselComponent/>
     </div>
   );
 };
