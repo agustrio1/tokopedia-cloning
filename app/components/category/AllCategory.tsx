@@ -1,0 +1,79 @@
+"use client";
+import React, { ReactNode } from "react";
+
+type Props = {};
+
+type Category = {
+  src: string;
+  alt: string;
+  text: string;
+};
+
+const categories: Category[] = [
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/11/09ec6803-7e1f-4be1-b438-f6b418b8d7a1.png",
+    alt: "Lihat Semua",
+    text: "Lihat Semua",
+  },
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/11/41591e19-ce13-481c-aec7-0f94992bf3c6.png",
+    alt: "Handphone & Tablet",
+    text: "Handphone & Tablet",
+  },
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/12/f517b6a2-d45f-4844-948b-209fc677ffa9.png",
+    alt: "Elektronik",
+    text: "Elektronik",
+  },
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/12/3af27543-cf37-4c75-8e28-b5dd84700304.png",
+    alt: "Komputer & Laptop",
+    text: "Komputer & Laptop",
+  },
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/11/67352b07-2422-4d3e-8a3c-88daa27df2a2.png",
+    alt: "Gaming",
+    text: "Gaming",
+  },
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/11/916c36f5-d85a-48ac-9ca8-c4ada643de6b.png",
+    alt: "Fashion Pria",
+    text: "Fashion Pria",
+  },
+  {
+    src: "https://images.tokopedia.net/img/cache/160-square/iEWsxH/2023/5/12/94559b24-6a21-437c-8f65-6b2334472295.png",
+    alt: "Makanan & Minuman",
+    text: "Makanan & Minuman",
+  },
+];
+
+const AllCategory = (props: Props) => {
+  const handleCategoryClick = (index: number) => {
+    console.log(`Category clicked: ${categories[index].text}`);
+  };
+
+  return (
+    <div className="flex max-w-screen-md mx-auto p-2 overflow-x-auto">
+      <div className="flex">
+        {categories.map((category, index) => (
+          <div
+            className="flex-shrink-0 mx-2"
+            key={index}
+            onClick={() => handleCategoryClick(index)}
+          >
+            <picture>
+              <img
+                className="w-14 h-14 object-cover rounded-lg"
+                src={category.src}
+                alt={category.alt}
+              />
+              <p className="w-16 text-center text-sm">{category.text}</p>
+            </picture>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllCategory;
