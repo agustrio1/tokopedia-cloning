@@ -7,31 +7,36 @@ const navs = [
     icon: "apps",
     text: "Home",
     image: "/assets/home-icons.svg",
-    activeImage : '/assets/home-active-icons.svg'
+    activeImage : '/assets/home-active-icons.svg',
+    route: "/home"
   },
   {
     icon: "heart",
     text: "Feed",
     image: "/assets/feed-icons.svg",
-    activeImage : '/assets/feed-active-icons.svg'
+    activeImage : '/assets/feed-active-icons.svg',
+    route: "/feed"
   },
   {
     icon: "cart",
     text: "Official-Store",
     image: "/assets/offical-icons.svg",
-    activeImage : 'https://assets.tokopedia.net/assets-tokopedia-lite/v2/poseidon/kratos/1200192a.svg'
+    activeImage : 'https://assets.tokopedia.net/assets-tokopedia-lite/v2/poseidon/kratos/1200192a.svg',
+    route: "/official-store"
   },
   {
     icon: "wishlist",
     text: "Wishlist",
     image: "/assets/wishlist-icons.svg",
-    activeImage : '/assets/wishlist-active-icons.svg'
+    activeImage : '/assets/wishlist-active-icons.svg',
+    route: "/wishlist"
   },
   {
     icon: "transaction",
     text: "Transaksi",
     image: "/assets/transaction-icons.svg",
-    activeImage : '/assets/transaction-active-icons.svg'
+    activeImage : '/assets/transaction-active-icons.svg',
+    route: "/transaksi"
   },
 ];
 
@@ -48,7 +53,7 @@ const handleIconsClick = (icons: string) => {
         {navs.map((item, index) => (
           <Link
             key={index}
-            href={item.text.toLowerCase()}
+            href={item.route.toLowerCase()}
             passHref
             className="flex flex-col items-center"
             onClick={() => handleIconsClick(item.icon)}
