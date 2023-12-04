@@ -53,8 +53,8 @@ const AllCategory = (props: Props) => {
   };
 
   return (
-    <div className="flex max-w-screen-md mx-auto p-2 overflow-x-auto">
-      <div className="flex">
+    <div className="flex max-w-screen-md mx-auto p-2 overflow-x-hidden" >
+      <div className="flex overflow-x-auto scrollbar-hide">
         {categories.map((category, index) => (
           <div
             className="flex-shrink-0 mx-2"
@@ -63,11 +63,11 @@ const AllCategory = (props: Props) => {
           >
             <picture>
               <img
-                className="w-14 h-14 object-cover rounded-lg"
+                className="w-12 h-12 object-cover rounded-lg"
                 src={category.src}
                 alt={category.alt}
               />
-              <p className="w-16 text-center text-sm">{category.text}</p>
+              <p className="w-16 text-center text-[12px]">{category.text}</p>
             </picture>
           </div>
         ))}

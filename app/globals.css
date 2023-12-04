@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  @apply items-center justify-center  max-w-[600px];
-} */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
