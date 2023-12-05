@@ -56,10 +56,7 @@ const categories: Category[] = [
 ];
 
 const AllCategory = (props: Props) => {
-  const handleCategoryClick = (index: number) => {
-    console.log(`Category clicked: ${categories[index].text}`);
-  };
-
+ 
   return (
     <div className="flex max-w-screen-md mx-auto p-2 overflow-x-hidden">
       <div className="flex overflow-x-auto scrollbar-hide">
@@ -67,8 +64,8 @@ const AllCategory = (props: Props) => {
           <div
             className="flex-shrink-0 mx-2"
             key={index}
-            onClick={() => handleCategoryClick(index)}>
-             <a href={category.text === "Lihat Semua" ? `/${category.route.toLowerCase()}` : `/${category.route.toLowerCase()}`}>
+            >
+             <a href={`/${category.route.toLowerCase()}`} className="inline-block">
               <picture>
                 <img
                   className="w-12 h-12 object-cover rounded-lg"

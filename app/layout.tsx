@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col items-center justify-center max-w-screen-md mx-auto">
+      <body className="flex flex-col items-center justify-between max-w-screen-md mx-auto">
         <AuthProvider>
           <Header />
           {children}
