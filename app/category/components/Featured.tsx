@@ -32,17 +32,11 @@ const textSource = [
 
 const Featured = (props: Props) => {
   return (
-    <div className="grid grid-cols-4 gap-4 md:flex md:flex-wrap">
+    <div className="grid grid-cols-4 gap-4">
       {imageSources.map((src, index) => (
-        <div key={index} className="md:w-1/4">
-          <img
-            src={src}
-            alt={`Featured Image ${index + 1}`}
-            className="w-8 h-8 mx-3"
-          />
-          <p className="w-16 text-center text-[11px] mt-2">
-            {textSource[index]}
-          </p>
+        <div key={index}>
+          <img src={src} alt={`Featured Image ${index + 1}`}  className="w-8 h-8 mx-3"/>
+          <p className="w-16 text-center text-[11px] mt-2">{textSource[index]}</p>
         </div>
       ))}
     </div>
