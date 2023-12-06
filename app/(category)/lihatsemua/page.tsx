@@ -21,7 +21,7 @@ const LihatSemua = (props: Props) => {
   const [IsGameOpen, setIsGameOpen] = useState(false)
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-white z-10 flex flex-col overflow-y-auto">
+    <div className="fixed top-0 left-0 w-full h-full bg-white z-10 flex flex-col">
       <div className="bg-white rounded-md p-4 w-full cursor-pointer flex items-center justify-between shadow-md border-b border-gray-300">
         <Link href={"/"} className="flex items-center flex-row">
           <IoArrowBack size={24} className="top-0 left-0 z-10 text-gray-500" />
@@ -30,7 +30,7 @@ const LihatSemua = (props: Props) => {
           </p>
         </Link>
       </div>
-      <div className="max-w-[600px] mx-auto p-2 mt-4 overflow-y-scroll">
+      <div className="max-w-[600px] mx-auto p-2 mt-4">
         <div
           onClick={() => setFeaturedOpen(!isFeaturedOpen)}
           className="flex flex-row max-w-screen-md items-center justify-between cursor-pointer mb-8">
