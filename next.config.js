@@ -1,13 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    router: {
-        routes: () => [
-          {
-            path: "/lihat-semua",
-            component: () => import("category/lihat-semua"),
-          },
-        ],
-      },
-}
+const nextConfig = {}     
 
 module.exports = nextConfig

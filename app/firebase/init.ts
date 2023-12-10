@@ -1,5 +1,6 @@
 import { getAuth, User as FirebaseUser, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from "firebase/firestore"
 
 export type User = FirebaseUser;
 
@@ -19,4 +20,6 @@ const app = initializeApp(firebaseConfig);
 // Dapatkan instance auth setelah inisialisasi aplikasi
 const auth = getAuth(app);
 
-export { auth, onAuthStateChanged,};
+const db = getFirestore(app);
+
+export {app, auth, onAuthStateChanged, db};

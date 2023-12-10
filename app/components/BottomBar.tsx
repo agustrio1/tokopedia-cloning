@@ -48,7 +48,7 @@ const handleIconsClick = (icons: string) => {
 }
 
   return (
-    <footer className="flex flex-row items-start justify-between fixed bottom-0 w-full max-w-lg p-2 ">
+    <footer className="flex flex-row items-start justify-between fixed bottom-0 w-full max-w-lg p-2 bg-white">
       <div className="flex flex-row justify-evenly sm:justify-evenly items-center mr-2 h-10 sm:h-8 space-x-2 sm:space-x-6 lg:space-x-10 w-full md:max-w-screen-md xl:max-w-screen-lg mx-auto">
         {navs.map((item, index) => (
           <Link

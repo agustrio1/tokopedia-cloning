@@ -5,7 +5,7 @@ type Props = {}
 
 const CategoryMenu = (props: Props) => {
   return (
-    <div className='flex flex-row items-center max-w-sm md:max-w-[400px]'>
+    <div className='flex flex-row items-center max-w-sm md:max-w-[400px] margin-group'>
         <AllCategory/>
     </div>
   )
