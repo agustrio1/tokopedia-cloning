@@ -62,13 +62,13 @@ const AllCategory = (props: Props) => {
       <div className="flex overflow-x-auto scrollbar-hide">
         {categories.map((category, index) => (
           <div
-            className="flex-shrink-0 mx-2"
+            className="flex-shrink-0 mx-1 md:mx-2"
             key={index}
             >
              <a href={`/${category.route.toLowerCase()}`} className="inline-block">
               <picture>
                 <img
-                  className="w-12 h-12 object-cover rounded-lg"
+                  className="w-8 h-8 md:w-12 md:h-12 object-cover rounded-lg mx-auto"
                   src={category.src}
                   alt={category.alt}
                 />

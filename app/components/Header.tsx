@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = () => {
 
 
   return (
-    <header className="mx-auto bg-primary p-4 md:flex md:justify-between item-centermd:items-center relative">
+    <header className="mx-auto bg-primary p-4 md:flex md:justify-between item-centermd:items-center fixed z-10 bg-white">
       <div className="flex items-center">
         <Link href="#">
           <div className="relative flex items-center">
