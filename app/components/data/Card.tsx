@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 type Product = {
   id: string;
@@ -70,6 +71,7 @@ const Card = (props: Props) => {
        renderPlaceholderCards(6)
       ): (
         data.map((item) => (
+          <Link href={`/smartphone/${item.id}`} key={item.id}>
           <div key={item.id} className="bg-white p-2 shadow-lg rounded-md">
             <img
               src={item.image}
@@ -91,6 +93,7 @@ const Card = (props: Props) => {
               Rp. {new Intl.NumberFormat("id-ID").format(item.price)}
             </p>
           </div>
+          </Link>
         ))
       )}
     </div>
