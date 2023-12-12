@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { revalidatePath } from "next/cache";
 
 type Product = {
   id: string;
@@ -28,6 +29,11 @@ const Card = (props: Props) => {
     const fetchData = async () => {
       try {
         const response = await fetch("/api/products/");
+        cache: "no-store"
+        next : {
+          tags : ["products"]
+          // revalidate: 3600
+        }
         if (response.ok) {
           const result: ApiResponse = await response.json();
           setData(result.data);
@@ -71,7 +77,7 @@ const Card = (props: Props) => {
        renderPlaceholderCards(6)
       ): (
         data.map((item) => (
-          <Link href={`/smartphone/${item.id}`} key={item.id}>
+          <Link key={item.id} href={`/api/products/details/${item.id}`}>
           <div key={item.id} className="bg-white p-2 shadow-lg rounded-md">
             <img
               src={item.image}
